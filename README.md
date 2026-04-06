@@ -1,51 +1,53 @@
-# Abdul Razak Bilal - Personal Portfolio
+# Abdul Razak Bilal — Portfolio
 
-![Portfolio Preview](assets/img/preview.png)
+Personal portfolio website hosted at [abdulrazakbilal.github.io](https://abdulrazakbilal.github.io)
 
-## 📄 Overview
+## 🚀 Deployment (GitHub Pages)
 
-This is my personal portfolio website designed to showcase my skills, qualifications, and projects as a **Data Science & AI Engineer**. The design is fully responsive, featuring a clean modern UI with a dark/light mode toggle.
+1. **Create repo** named exactly `abdulrazakbilal.github.io` on GitHub
+2. **Add your resume PDF** named `Abdul_Razak_Bilal_Resume.pdf` to the root folder
+3. **Push all files** to the `main` branch:
 
-Hosted live at: [Link to your GitHub Pages or Live URL]
+```bash
+git init
+git add .
+git commit -m "initial portfolio launch"
+git branch -M main
+git remote add origin https://github.com/abdulrazakbilal/abdulrazakbilal.github.io.git
+git push -u origin main
+```
 
-## ✨ Features
+4. Go to **Settings → Pages → Source: Deploy from branch → main → / (root)**
+5. Your site goes live at `https://abdulrazakbilal.github.io` within ~2 minutes ✅
 
-- **Responsive Design**: Adapts seamlessly to Mobile, Tablet, and Desktop screens.
-- **Dark/Light Mode**: User-friendly theme toggle.
-- **Interactive Elements**:
-    - Smooth scrolling navigation.
-    - Skills accordion.
-    - Qualification tabs.
-    - Portfolio project swiper.
-- **Dynamic Content**: Populated with my latest education, experience, and projects.
+## 📁 File Structure
 
-## 🛠️ Technologies Used
+```
+abdulrazakbilal.github.io/
+├── index.html                      ← Main portfolio page
+├── style.css                       ← All styles
+├── script.js                       ← Interactions & animations
+├── Abdul_Razak_Bilal_Resume.pdf    ← Your resume (add this!)
+└── README.md
+```
 
-- **HTML5**: Semantic structure.
-- **CSS3**: Custom properties, Flexbox, and Grid layout.
-- **JavaScript**: UI logic and interactivity.
-- **Boxicons / Unicons**: For scalable vector icons.
-- **Swiper.js**: For the portfolio carousel.
+## ✏️ How to Add Your Photo
 
-## 🚀 Setup & Usage
+In `index.html`, find the `.hex-avatar` section and replace the placeholder SVG with:
 
-To run this project locally:
+```html
+<img src="your-photo.jpg" alt="Abdul Razak Bilal" style="width:100%;height:100%;object-fit:cover;" />
+```
 
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/abdulrazakbilal/portfolio.git
-    ```
-2.  **Navigate to the project directory**:
-    ```bash
-    cd portfolio
-    ```
-3.  **Open `index.html`**:
-    Simply open the `index.html` file in your preferred web browser.
+## 🎨 Theme Customization
 
-## 🤝 Credits
+All colors are in CSS variables at the top of `style.css`:
 
-- Design inspiration by [Bedimcode](https://github.com/bedimcode).
-- Developed by **Abdul Razak Bilal**.
+```css
+--accent: #00d4a4;   /* Change this to any color you want */
+```
 
----
-*Feel free to star ⭐ this repository if you find it useful!*
+## 📄 Resume
+
+Place your resume PDF as `Abdul_Razak_Bilal_Resume.pdf` in the root directory.
+Both "View Resume" and "Download PDF" buttons link to this file.
