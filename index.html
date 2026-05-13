@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdul Razak Bilal — Data Scientist</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">ARB<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="Abdul_Razak_Bilal_Resume.pdf" target="_blank" class="btn-resume">
+      <span>Resume</span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"          onclick="closeMobile()">About</a>
+    <a href="#skills"         onclick="closeMobile()">Skills</a>
+    <a href="#projects"       onclick="closeMobile()">Projects</a>
+    <a href="#experience"     onclick="closeMobile()">Experience</a>
+    <a href="#certifications" onclick="closeMobile()">Certifications</a>
+    <a href="#contact"        onclick="closeMobile()">Contact</a>
+    <a href="Abdul_Razak_Bilal_Resume.pdf" target="_blank" class="mobile-resume">Download Resume ↓</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-photo fade-up d2">
+      <div class="photo-ring">
+        <img src="assets/img/profile.png" alt="Abdul Razak Bilal" />
+      </div>
+      <div class="photo-orbit">
+        <div class="orb-dot od1"></div>
+        <div class="orb-dot od2"></div>
+        <div class="orb-dot od3"></div>
+      </div>
+      <div class="photo-tag pt1">🏏 Cricket Analytics</div>
+      <div class="photo-tag pt2">🤖 Agentic AI</div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag fade-up d1"><span class="tag-dot"></span> Open to Internships &amp; Collaborations</div>
+      <h1 class="hero-name fade-up d2">
+        <span class="ln">Abdul</span>
+        <span class="ln">Razak</span>
+        <span class="ln outline">Bilal</span>
+      </h1>
+      <div class="hero-role fade-up d3"><span id="typedText"></span><span class="type-cursor">|</span></div>
+      <p class="hero-desc fade-up d4">B.Tech CSE (AI &amp; ML) · GPREC, Kurnool. Building at the intersection of <em>data science</em>, <em>machine learning</em>, and <em>sports analytics</em>.</p>
+      <div class="hero-cta fade-up d5">
+        <a href="#projects" class="btn-primary"><span>View My Work</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-stats-row fade-up d6">
+      <div class="hstat"><span class="hstat-n" data-target="8.47" data-dec="2">0</span><span class="hstat-l">CGPA</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n" data-target="350" data-suffix="+">0</span><span class="hstat-l">Problems Solved</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n" data-target="6" data-suffix="+">0</span><span class="hstat-l">Certifications</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n" data-target="4" data-suffix="K+">0</span><span class="hstat-l">LinkedIn Followers</span></div>
+    </div>
+  </div>
+  <div class="scroll-mouse-hint"><div class="scroll-mouse"><div class="scroll-wheel"></div></div><span>Scroll</span></div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="sec-label reveal-left">01 — About</div>
+    <div class="about-grid">
+      <div class="about-left">
+        <h2 class="sec-title reveal-fade">Turning Data Into <span class="accent">Stories.</span></h2>
+        <div class="summary-pill reveal-fade" style="--rd:.05s">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          AI &amp; ML Engineer · Data Scientist · Hackathon Builder
+        </div>
+        <p class="reveal-fade" style="--rd:.1s">I'm a B.Tech student specializing in AI &amp; ML at G. Pulla Reddy Engineering College, Kurnool. My journey started with curiosity about patterns — in cricket scorecards, in business data, in the world around me.</p>
+        <p class="reveal-fade" style="--rd:.2s">Through internships, hackathons, and personal projects, I've built a toolkit spanning data analysis, machine learning, computer vision, and agentic AI. I don't just build models — I build tools that create real impact.</p>
+        <p class="reveal-fade" style="--rd:.3s">When I'm not crunching data, I'm reading cricket analytics literature, creating AI art, or thinking about how to explain complex ideas simply.</p>
+        <div class="about-tags reveal-fade" style="--rd:.4s">
+          <span>Data Scientist</span><span>ML Engineer</span><span>Cricket Analyst</span>
+          <span>Hackathon Builder</span><span>AI Art Creator</span><span>Vibe Coder</span>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="info-card reveal-up">
+          <div class="info-row"><span class="ik">Location</span><span class="iv">Kurnool, Andhra Pradesh</span></div>
+          <div class="info-row"><span class="ik">Degree</span><span class="iv">B.Tech CSE (AI &amp; ML)</span></div>
+          <div class="info-row"><span class="ik">College</span><span class="iv">GPREC, Kurnool</span></div>
+          <div class="info-row"><span class="ik">CGPA</span><span class="iv accent-val">8.47 / 10</span></div>
+          <div class="info-row"><span class="ik">Languages</span><span class="iv">English · Urdu · Telugu</span></div>
+          <div class="info-row"><span class="ik">Interests</span><span class="iv">Cricket · AI Art · Analytics</span></div>
+        </div>
+        <div class="edu-track reveal-up" style="--rd:.15s">
+          <div class="edu-node">
+            <div class="edu-dot"></div>
+            <div class="edu-body">
+              <div class="edu-deg">B.Tech — CSE (AI &amp; ML)</div>
+              <div class="edu-sch">GPREC, Kurnool</div>
+              <div class="edu-yr">2024 – 2027 · CGPA 8.47</div>
+            </div>
+          </div>
+          <div class="edu-node">
+            <div class="edu-dot"></div>
+            <div class="edu-body">
+              <div class="edu-deg">Diploma — Computer Engineering</div>
+              <div class="edu-sch">BITS, Kurnool</div>
+              <div class="edu-yr">2021 – 2024 · 95.78%</div>
+            </div>
+          </div>
+          <div class="edu-node last">
+            <div class="edu-dot"></div>
+            <div class="edu-body">
+              <div class="edu-deg">SSC — Secondary School</div>
+              <div class="edu-sch">Sri Lakshmi High School</div>
+              <div class="edu-yr">2011 – 2021 · 10.0 GPA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills" class="section section-alt">
+  <div class="container">
+    <div class="sec-label reveal-left">02 — Skills</div>
+    <h2 class="sec-title reveal-fade">Technical <span class="accent">Arsenal.</span></h2>
+    <div class="skills-layout">
+      <div class="skill-bars-col">
+        <div class="sbar reveal-fade"><div class="sbar-head"><span>Python</span><span>92%</span></div><div class="sbar-track"><div class="sbar-fill" data-w="92"></div></div></div>
+        <div class="sbar reveal-fade" style="--rd:.06s"><div class="sbar-head"><span>Pandas / NumPy</span><span>88%</span></div><div class="sbar-track"><div class="sbar-fill" data-w="88"></div></div></div>
+        <div class="sbar reveal-fade" style="--rd:.12s"><div class="sbar-head"><span>Scikit-learn / XGBoost</span><span>82%</span></div><div class="sbar-track"><div class="sbar-fill" data-w="82"></div></div></div>
+        <div class="sbar reveal-fade" style="--rd:.18s"><div class="sbar-head"><span>Power BI</span><span>85%</span></div><div class="sbar-track"><div class="sbar-fill" data-w="85"></div></div></div>
+        <div class="sbar reveal-fade" style="--rd:.24s"><div class="sbar-head"><span>SQL</span><span>78%</span></div><div class="sbar-track"><div class="sbar-fill" data-w="78"></div></div></div>
+        <div class="sbar reveal-fade" style="--rd:.30s"><div class="sbar-head"><span>Streamlit / FastAPI</span><span>80%</span></div><div class="sbar-track"><div class="sbar-fill" data-w="80"></div></div></div>
+        <div class="sbar reveal-fade" style="--rd:.36s"><div class="sbar-head"><span>Prompt Engineering / GenAI</span><span>86%</span></div><div class="sbar-track"><div class="sbar-fill" data-w="86"></div></div></div>
+      </div>
+      <div class="skill-pills-col">
+        <div class="spg reveal-up"><div class="spg-label">🐍 Programming</div><div class="spg-pills"><span>Python</span><span>SQL</span><span>Java</span><span>HTML/CSS</span></div></div>
+        <div class="spg reveal-up" style="--rd:.08s"><div class="spg-label">🧠 ML &amp; Data</div><div class="spg-pills"><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>XGBoost</span><span>OpenCV</span><span>GARCH</span></div></div>
+        <div class="spg reveal-up" style="--rd:.16s"><div class="spg-label">✨ Generative AI</div><div class="spg-pills"><span>Groq API</span><span>IBM watsonx</span><span>RAG</span><span>Gemini API</span><span>Prompt Eng.</span><span>Foundation Models</span><span>Multi-Agent Systems</span></div></div>
+        <div class="spg reveal-up" style="--rd:.24s"><div class="spg-label">☁️ Cloud &amp; AWS</div><div class="spg-pills"><span>AWS SageMaker</span><span>AWS Bedrock</span><span>PartyRock</span><span>AI Governance</span><span>Cloud Computing</span></div></div>
+        <div class="spg reveal-up" style="--rd:.32s"><div class="spg-label">🛠 Tools</div><div class="spg-pills"><span>Streamlit</span><span>FastAPI</span><span>Next.js</span><span>Power BI</span><span>GitHub</span><span>Supabase</span><span>Jupyter</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="sec-label reveal-left">03 — Projects</div>
+    <div class="proj-head-row">
+      <h2 class="sec-title reveal-fade">Things I've <span class="accent">Built.</span></h2>
+      <div class="proj-nav-btns">
+        <button class="pnav" id="pLeft" aria-label="Prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="pnav" id="pRight" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="proj-overflow">
+    <div class="proj-track" id="projTrack">
+
+      <article class="pcard featured">
+        <div class="pcard-num">01</div>
+        <span class="pcard-badge">UNT Research Internship · 2026</span>
+        <h3>Guardian Twin</h3>
+        <p>Privacy-preserving AI-powered digital twin for home patient monitoring. Streams real-time health data from Samsung Galaxy Watch &amp; iHealth FLOW AM6, detects falls and cardiac anomalies, and guides caregivers through plain-language action protocols — all under 10 seconds end-to-end latency.</p>
+        <div class="pcard-stack"><span>Digital Twin</span><span>Wearables</span><span>Anomaly Detection</span><span>ML</span><span>Python</span><span>Health Informatics</span></div>
+        <div class="pcard-foot"><span class="pcard-sm-badge">In Progress · Dr. Pretom Roy Ovi, UNT</span></div>
+      </article>
+
+      <article class="pcard featured">
+        <div class="pcard-num">02</div>
+        <span class="pcard-badge">ET Gen AI Hackathon 2026</span>
+        <h3>Bharat Vaani</h3>
+        <p>Culturally adaptive Indian news engine transforming English news into regionally resonant Hindi, Telugu, Tamil &amp; Bengali content. Features a Desi Analogy Engine, four output formats, persona learning, and real-time TTS.</p>
+        <div class="pcard-stack"><span>FastAPI</span><span>Next.js 14</span><span>Groq API</span><span>Edge TTS</span><span>SQLite</span></div>
+        <div class="pcard-foot">
+          <a href="https://github.com/abdulrazakbilal/bharat-vaani" target="_blank" rel="noopener" class="plink">GitHub <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-num">03</div>
+        <span class="pcard-badge">IBM Dev Day Hackathon 2026</span>
+        <h3>Multi-Agent Patent System</h3>
+        <p>5-agent patent strategy system built as Team Lead &amp; AI Architect. Designed reasoning flows, agent personas, TRIZ-based workarounds, and Human-in-the-Loop approval checkpoints on IBM watsonx Orchestrate.</p>
+        <div class="pcard-stack"><span>IBM watsonx</span><span>Agentic AI</span><span>Orchestrate</span></div>
+        <div class="pcard-foot"><span class="pcard-sm-badge">Team Lead · AI Architect</span></div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-num">04</div>
+        <h3>WASP — IPL Win Probability</h3>
+        <p>End-to-end win probability model trained on 130k+ IPL ball-by-ball records. Engineered match-context features, trained Logistic Regression &amp; XGBoost, visualized real-time probability curves with momentum flip detection.</p>
+        <div class="pcard-stack"><span>Python</span><span>XGBoost</span><span>Streamlit</span><span>Pandas</span></div>
+        <div class="pcard-foot">
+          <a href="https://github.com/abdulrazakbilal/wasp-win-probability-project" target="_blank" rel="noopener" class="plink">GitHub <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-num">05</div>
+        <h3>MedIQ — Medical Image QC</h3>
+        <p>Automated QC pipeline for medical imaging using Computer Vision (Laplacian Variance, SNR). Correlated NIH Chest X-ray artifacts with patient metadata for systemic error detection. Real-time Accept/Reject dashboard.</p>
+        <div class="pcard-stack"><span>OpenCV</span><span>Python</span><span>Streamlit</span><span>NIH Data</span></div>
+        <div class="pcard-foot">
+          <a href="https://github.com/abdulrazakbilal/MedIQ-Health-Informatics" target="_blank" rel="noopener" class="plink">GitHub <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-num">06</div>
+        <h3>Play11 Prism</h3>
+        <p>AI-powered T20 XI optimizer. Converts player performance data into optimal lineup recommendations. Shipped from Jupyter Notebook prototype to a live web application.</p>
+        <div class="pcard-stack"><span>Python</span><span>Lovable</span><span>Supabase</span></div>
+        <div class="pcard-foot">
+          <a href="https://github.com/abdulrazakbilal/Optimized-T20-Play-11" target="_blank" rel="noopener" class="plink">GitHub</a>
+          <a href="https://play11prism.lovable.app/" target="_blank" rel="noopener" class="plink">Live →</a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-num">07</div>
+        <h3>that32bloke</h3>
+        <p>Custom sports storytelling &amp; data analytics platform with secure auth, rich-text CMS, image uploads, and newsletter automation. Home to "The Gambhir Experiment" deep-dive analysis.</p>
+        <div class="pcard-stack"><span>Lovable</span><span>Supabase</span><span>CMS</span></div>
+        <div class="pcard-foot">
+          <a href="https://that32bloke.lovable.app/" target="_blank" rel="noopener" class="plink">Live →</a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-num">08</div>
+        <h3>Ryze Pocket Cashier</h3>
+        <p>Full POS system for small businesses vibe-coded in a single day. Real-time database, dark mode, multi-shop support, billing, inventory management, and daily sales history.</p>
+        <div class="pcard-stack"><span>Lovable</span><span>Supabase</span><span>React</span></div>
+        <div class="pcard-foot"><span class="pcard-sm-badge">Built in 1 day</span></div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-num">09</div>
+        <h3>WorldQuant DS Lab — 8 Projects</h3>
+        <p>All 8 end-to-end projects: housing regression, air quality forecasting (Nairobi), earthquake damage classification (Nepal), bankruptcy prediction, customer segmentation, A/B testing, GARCH volatility modeling.</p>
+        <div class="pcard-stack"><span>Python</span><span>Scikit-learn</span><span>MongoDB</span><span>FastAPI</span></div>
+        <div class="pcard-foot"><span class="pcard-sm-badge">WorldQuant University · 2025–26</span></div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-num">10</div>
+        <span class="pcard-badge">AIIgnite 2.0 · Inter-College Hackathon</span>
+        <h3>MetroBot — AI Metro Query Chatbot</h3>
+        <p>AI-powered metro passenger query chatbot built using Gemini API and Retrieval-Augmented Generation (RAG). Designed document retrieval pipelines grounded on metro data to deliver accurate, context-aware conversational responses in real time.</p>
+        <div class="pcard-stack"><span>Gemini API</span><span>RAG</span><span>Python</span><span>LangChain</span></div>
+        <div class="pcard-foot"><span class="pcard-sm-badge">Jan 2026 · AIIgnite 2.0</span></div>
+      </article>
+
+    </div>
+  </div>
+  <div class="proj-dots" id="projDots"></div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience" class="section section-alt">
+  <div class="container">
+    <div class="sec-label reveal-left">04 — Experience</div>
+    <h2 class="sec-title reveal-fade">Where I've <span class="accent">Worked.</span></h2>
+    <div class="exp-list">
+
+      <div class="exp-card reveal-up">
+        <div class="exp-logo-col">
+          <div class="exp-logo-box dark-lb" style="background:#1a3a5c">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/University_of_North_Texas_seal.svg/200px-University_of_North_Texas_seal.svg.png" alt="UNT" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:80%;object-fit:contain"/>
+            <div class="logo-fb" style="display:none">UNT</div>
+          </div>
+          <div class="exp-vline"></div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-top-row">
+            <div><h3 class="exp-role">Research Intern — Data Science &amp; Health Informatics</h3><div class="exp-company">University of North Texas, USA · GPREC–UNT MoU Program</div></div>
+            <div class="exp-meta"><span class="exp-pill">Internship · Remote</span><span class="exp-date">May 2026 – Present</span></div>
+          </div>
+          <ul class="exp-bul">
+            <li>Selected for a competitive remote research internship under the GPREC–UNT MoU (signed Feb 2025), supervised by <strong>Dr. Pretom Roy Ovi</strong>, Assistant Professor of Data Science at UNT.</li>
+            <li>Working on <strong>Guardian Twin</strong> — a privacy-preserving AI-powered digital twin for home patient monitoring and caregiver decision support using consumer-grade wearables (Samsung Galaxy Watch 5/6, iHealth FLOW AM6).</li>
+            <li>Scope covers wearable data pipeline design, real-time anomaly detection, fall detection (accelerometer + ML hybrid), 5-level event classification, and caregiver alerts targeting sub-10-second end-to-end latency.</li>
+          </ul>
+          <div class="exp-tags"><span>Digital Twin</span><span>Wearables</span><span>Anomaly Detection</span><span>Health Informatics</span><span>Python</span><span>ML</span></div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal-up" style="--rd:.1s">
+        <div class="exp-logo-col">
+          <div class="exp-logo-box">
+            <img src="https://media.licdn.com/dms/image/v2/D4D0BAQEXh1YTYP2VKQ/company-logo_200_200/0/1719590847427" alt="iTUX" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="logo-fb">iTUX</div>
+          </div>
+          <div class="exp-vline"></div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-top-row">
+            <div><h3 class="exp-role">Data Analytics Intern</h3><div class="exp-company">iTUX Solutions</div></div>
+            <div class="exp-meta"><span class="exp-pill">Internship · Remote</span><span class="exp-date">Dec 2023 – May 2024</span></div>
+          </div>
+
+          <ul class="exp-bul">
+            <li>Built interactive Power BI dashboards translating raw business data into decision-ready insights for stakeholders.</li>
+            <li>Created training documentation and presentations to simplify analytical concepts for non-technical team members.</li>
+            <li>Collaborated cross-functionally on analytics workflows and contributed to website content structuring.</li>
+          </ul>
+          <div class="exp-tags"><span>Power BI</span><span>Data Analysis</span><span>Documentation</span><span>Business Intelligence</span></div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal-up" style="--rd:.1s">
+        <div class="exp-logo-col">
+          <div class="exp-logo-box dark-lb">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" style="filter:invert(1);width:70%"/>
+          </div>
+          <div class="exp-vline"></div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-top-row">
+            <div><h3 class="exp-role">AI Agent Architect &amp; Team Lead</h3><div class="exp-company">IBM Dev Day AI Demystified Hackathon</div></div>
+            <div class="exp-meta"><span class="exp-pill hackathon">Hackathon</span><span class="exp-date">2026</span></div>
+          </div>
+          <ul class="exp-bul">
+            <li>Led <strong>The DataMind Squad</strong> (5 members) as Team Lead and AI Architect.</li>
+            <li>Designed reasoning logic, agent personas, and delegation flows for a 5-agent patent strategy system on IBM watsonx Orchestrate.</li>
+            <li>Implemented TRIZ-based workarounds, safety guardrails, and Human-in-the-Loop approval checkpoints.</li>
+          </ul>
+          <div class="exp-tags"><span>IBM watsonx</span><span>Agentic AI</span><span>Team Leadership</span><span>AI Architecture</span></div>
+        </div>
+      </div>
+
+      <div class="exp-card reveal-up" style="--rd:.2s">
+        <div class="exp-logo-col">
+          <div class="exp-logo-box dark-lb" style="font-size:1.6rem;display:flex;align-items:center;justify-content:center">📰</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-top-row">
+            <div><h3 class="exp-role">Team Lead &amp; Full-Stack Developer</h3><div class="exp-company">ET Gen AI Hackathon 2026</div></div>
+            <div class="exp-meta"><span class="exp-pill hackathon">Hackathon</span><span class="exp-date">2026</span></div>
+          </div>
+          <ul class="exp-bul">
+            <li>Built <strong>Bharat Vaani</strong> end-to-end as sole developer — FastAPI + Next.js 14 + Groq API + Microsoft Edge TTS.</li>
+            <li>Resolved API key exposure via git history rewrite, Groq rate limiting, and React hydration warnings under deadline.</li>
+            <li>Delivered pitch deck, architecture document, and live demo script as submission package.</li>
+          </ul>
+          <div class="exp-tags"><span>FastAPI</span><span>Next.js</span><span>Groq API</span><span>TTS</span><span>SQLite</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CERTIFICATIONS ═══ -->
+<section id="certifications" class="section">
+  <div class="container">
+    <div class="sec-label reveal-left">05 — Certifications</div>
+    <h2 class="sec-title reveal-fade">Credentials &amp; <span class="accent">Badges.</span></h2>
+    <div class="certs-grid">
+
+      <div class="cert-card reveal-up" style="border-color:rgba(255,153,0,.35)">
+        <div class="cert-logo" style="background:#232f3e;padding:10px"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=cfb style=background:#232f3e;color:#ff9900>AWS</div>'"/></div>
+        <div class="cert-info"><h4>AWS AI Practitioner Challenge</h4><div class="c-issuer">Udacity × AWS · AI &amp; ML Scholars</div><div class="c-date">May 2026</div><a href="https://www.udacity.com/certificate/e/d5aadf24-27e8-11f1-8856-1b1fda68b4ae" target="_blank" rel="noopener" class="c-cred">View Credential →</a></div>
+        <div class="cert-glow"></div>
+      </div>
+
+      <div class="cert-card reveal-up" style="--rd:.07s">
+        <div class="cert-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/WorldQuant_University_logo.png" alt="WorldQuant" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=cfb>WQU</div>'"/></div>
+        <div class="cert-info"><h4>Applied Data Science Lab</h4><div class="c-issuer">WorldQuant University</div><div class="c-date">Jan 2026</div><a href="https://www.credly.com/badges/484dee99-c198-4cdf-843d-a62279ea110e/linked_in_profile" target="_blank" rel="noopener" class="c-cred">View Credential →</a></div>
+        <div class="cert-glow"></div>
+      </div>
+
+      <div class="cert-card reveal-up" style="--rd:.14s">
+        <div class="cert-logo" style="background:#fff"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=cfb>Meta</div>'"/></div>
+        <div class="cert-info"><h4>Data Analyst Professional Certificate</h4><div class="c-issuer">Meta / Coursera</div><div class="c-date">Feb 2025</div><a href="https://www.coursera.org/account/accomplishments/specialization/AOLPO1DIDA57" target="_blank" rel="noopener" class="c-cred">View Credential →</a></div>
+        <div class="cert-glow"></div>
+      </div>
+
+      <div class="cert-card reveal-up" style="--rd:.21s">
+        <div class="cert-logo" style="background:#fff;padding:10px"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Infosys_BPM_logo.svg" alt="Infosys" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=cfb>Infosys</div>'"/></div>
+        <div class="cert-info"><h4>Machine Learning Foundation</h4><div class="c-issuer">Infosys Springboard</div><div class="c-date">Jan 2026</div></div>
+        <div class="cert-glow"></div>
+      </div>
+
+      <div class="cert-card reveal-up" style="--rd:.28s">
+        <div class="cert-logo" style="background:#fff;padding:10px"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=cfb>Google</div>'"/></div>
+        <div class="cert-info"><h4>Google AI Essentials</h4><div class="c-issuer">Google / Coursera</div><div class="c-date">Aug 2024</div><a href="https://www.credly.com/badges/2e962897-131e-46c9-8b34-6714f3de8844/linked_in_profile" target="_blank" rel="noopener" class="c-cred">View Credential →</a></div>
+        <div class="cert-glow"></div>
+      </div>
+
+      <div class="cert-card reveal-up" style="--rd:.35s">
+        <div class="cert-logo" style="background:#fff;padding:8px"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/HCL_Technologies_old_logo.svg" alt="GUVI" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=cfb>GUVI</div>'"/></div>
+        <div class="cert-info"><h4>Python Programming</h4><div class="c-issuer">HCL GUVI</div><div class="c-date">Aug 2023</div></div>
+        <div class="cert-glow"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="section section-alt">
+  <div class="container">
+    <div class="sec-label reveal-left">06 — Contact</div>
+    <div class="contact-grid">
+      <div class="contact-left reveal-fade">
+        <h2 class="sec-title">Let's <span class="accent">Connect.</span></h2>
+        <p>Currently interning at the University of North Texas (USA) on Guardian Twin. Actively open to full-time roles and collaborations in Data Science, ML, and Analytics — especially sports analytics.</p>
+        <p>I respond fast. Don't be a stranger.</p>
+        <div class="contact-links">
+          <a href="mailto:abdulrazakbilal32@gmail.com" class="clink"><div class="clink-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><span>abdulrazakbilal32@gmail.com</span></a>
+          <a href="https://linkedin.com/in/abdul-razak-bilal/" target="_blank" rel="noopener" class="clink"><div class="clink-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div><span>linkedin.com/in/abdul-razak-bilal</span></a>
+          <a href="https://github.com/abdulrazakbilal" target="_blank" rel="noopener" class="clink"><div class="clink-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div><span>github.com/abdulrazakbilal</span></a>
+          <a href="tel:+918712994151" class="clink"><div class="clink-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><span>+91 87129 94151</span></a>
+        </div>
+      </div>
+      <div class="contact-right reveal-up">
+        <div class="resume-box">
+          <div class="resume-ic"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+          <h3>Resume</h3>
+          <p>Full resume with all projects, experience, and certifications.</p>
+          <div class="resume-btns">
+            <a href="Abdul_Razak_Bilal_Resume.pdf" target="_blank" class="btn-primary">View PDF</a>
+            <a href="Abdul_Razak_Bilal_Resume.pdf" download class="btn-ghost">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <span class="footer-logo">ARB<span class="dot">.</span></span>
+      <span class="footer-copy">Designed &amp; built by Abdul Razak Bilal · 2026</span>
+      <div class="footer-soc">
+        <a href="https://github.com/abdulrazakbilal" target="_blank" rel="noopener" aria-label="GitHub"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="https://linkedin.com/in/abdul-razak-bilal/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
